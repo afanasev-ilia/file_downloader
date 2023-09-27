@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from api.serializers import FileSerializer
+from files.models import File
+
+
+
+class FileViewSet(viewsets.ModelViewSet):
+    queryset = File.objects.all().order_by('-uploaded_at')
+    serializer_class = FileSerializer
