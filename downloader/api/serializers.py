@@ -11,7 +11,9 @@ class MyFileField(serializers.FileField):
             for chunk in data.chunks():
                 temp_file.write(chunk)
         with open(file_path, 'rb') as temp_file:
-            return super().to_internal_value(ContentFile(temp_file.read(), name=temp_file.name))
+            return super().to_internal_value(
+                ContentFile(temp_file.read(), name=temp_file.name)
+            )
 
 
 class FileSerializer(serializers.ModelSerializer):
