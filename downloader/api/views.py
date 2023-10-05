@@ -6,7 +6,6 @@ from api.serializers import FileSerializer
 
 
 class FileAPIView(APIView):
-    # parser_classes = (MultiPartParser, FormParser)
     serializer_class = FileSerializer
 
     def post(self, request, *args, **kwargs):
